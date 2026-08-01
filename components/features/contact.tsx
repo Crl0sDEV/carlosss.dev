@@ -6,7 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2 } from "lucide-react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import dynamic from 'next/dynamic';
+
+const HCaptcha = dynamic(() => import("@hcaptcha/react-hcaptcha"), { ssr: false });
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -39,7 +41,7 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const captchaRef = useRef<HCaptcha>(null);
+  const [captchaKey, setCaptchaKey] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,7 +71,7 @@ export function Contact() {
       if (response.ok) {
         setStatus("success");
         (e.target as HTMLFormElement).reset();
-        captchaRef.current?.resetCaptcha();
+        setCaptchaKey(prev => prev + 1);
         setCaptchaToken(null);
         
         // Reset success message after 3 seconds
@@ -182,10 +184,10 @@ export function Contact() {
           
           <div className="flex justify-center">
             <HCaptcha
+               key={captchaKey}
                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
                reCaptchaCompat={false}
                onVerify={(token) => setCaptchaToken(token)}
-               ref={captchaRef}
             /> 
           </div>
 

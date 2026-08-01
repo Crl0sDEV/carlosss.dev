@@ -1,5 +1,7 @@
 import { Badge } from "@/components/ui/badge";
-import { GithubContributions } from "./github-contributions";
+import dynamic from 'next/dynamic';
+
+const GithubContributions = dynamic(() => import('./github-contributions').then(m => ({ default: m.GithubContributions })), { ssr: false });
 
 export function About() {
   const skills = [

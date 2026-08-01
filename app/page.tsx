@@ -5,7 +5,9 @@ import { Projects } from "@/components/features/projects";
 import { Services } from "@/components/features/services";
 import { Contact } from "@/components/features/contact";
 import { Footer } from "@/components/features/footer";
-import { Chatbot } from "@/components/features/chatbot";
+import dynamic from 'next/dynamic';
+
+const Chatbot = dynamic(() => import('@/components/features/chatbot').then(m => ({ default: m.Chatbot })), { ssr: false });
 
 export default function Home() {
   return (

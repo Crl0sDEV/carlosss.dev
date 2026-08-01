@@ -5,7 +5,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Badge } from "@/components/ui/badge";
 import { projects, Project } from "@/data/projects";
 import Image from "next/image";
-import { LivePreviewModal } from "./live-preview-modal";
+import dynamic from 'next/dynamic';
+
+const LivePreviewModal = dynamic(() => import('./live-preview-modal').then(m => ({ default: m.LivePreviewModal })), { ssr: false });
 
 export function Projects() {
   const [previewProject, setPreviewProject] = useState<Project | null>(null);
