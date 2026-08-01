@@ -81,6 +81,9 @@ export function Projects() {
                     <div className="text-xs">
                       <strong className="text-[#18181B] dark:text-[#F4F4F5]">Solution:</strong> <span className="text-[#52525B] dark:text-[#A1A1AA]">{project.solution}</span>
                     </div>
+                    <div className="text-xs">
+                      <strong className="text-[#18181B] dark:text-[#F4F4F5]">Impact:</strong> <span className="text-blue-600 dark:text-blue-400 font-medium">{project.impact}</span>
+                    </div>
                   </div>
                 </CardContent>
                 

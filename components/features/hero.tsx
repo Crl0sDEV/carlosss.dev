@@ -9,9 +9,9 @@ export function Hero() {
         
         <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-8">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] leading-tight flex-1">
-            Full-Stack Web Developer <br />
+            I build custom web apps <br />
             <span className="text-blue-600 dark:text-blue-500">
-              Crafting Digital Solutions
+              that drive real business results
             </span>
           </h1>
 
@@ -28,15 +28,15 @@ export function Hero() {
         </div>
         
         <p className="text-lg text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
-          I'm Carlos, a Full Stack Web Developer specializing in building high-performance, user-centric web applications with modern technologies. I focus on clean code and robust architecture.
+          I'm Carlos, a Full Stack Developer. I help businesses scale by engineering high-performance web applications, automating workflows, and delivering measurable digital solutions that solve real problems.
         </p>
         
         <div className="flex flex-wrap gap-4 pt-4">
           <a href="#contact" className="inline-flex items-center justify-center whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 rounded-lg px-6 h-10 font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-            Hire Me
+            Book a Free Call
           </a>
           <a href="#projects" className="inline-flex items-center justify-center whitespace-nowrap border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] hover:bg-[#F4F4F5] dark:hover:bg-[#1A1A1A] rounded-lg px-6 h-10 font-medium bg-transparent transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
-            View Work
+            View Case Studies
           </a>
         </div>
       </div>

@@ -3,18 +3,18 @@ import { MonitorSmartphone, Server, Zap } from "lucide-react";
 export function Services() {
   const services = [
     {
-      title: "Full-Stack Development",
-      description: "I build responsive, high-performance web apps from scratch using modern frameworks like Next.js and React, tailored perfectly to your business needs.",
+      title: "Custom Web Applications",
+      description: "I build fast, scalable web apps that automate your workflows, engage your customers, and directly increase your revenue.",
       icon: <MonitorSmartphone className="w-6 h-6 text-blue-600 dark:text-blue-500" />
     },
     {
-      title: "Backend & API Architecture",
-      description: "I design robust server-side logic, secure database architectures, and scalable APIs using Node.js, PostgreSQL, and Supabase.",
+      title: "Backend & Systems Integration",
+      description: "I design secure, robust databases and APIs that protect your company's data and connect seamlessly with your existing tools.",
       icon: <Server className="w-6 h-6 text-blue-600 dark:text-blue-500" />
     },
     {
-      title: "Performance Optimization",
-      description: "I refactor legacy codebases, improve Core Web Vitals, and ensure your application is lightning-fast and accessible globally.",
+      title: "Performance & SEO Optimization",
+      description: "I fix slow websites so they load instantly on mobile, rank higher on Google, and stop losing you potential customers.",
       icon: <Zap className="w-6 h-6 text-blue-600 dark:text-blue-500" />
     }
   ];

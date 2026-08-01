@@ -3,6 +3,7 @@ import { Hero } from "@/components/features/hero";
 import { About } from "@/components/features/about";
 import { Projects } from "@/components/features/projects";
 import { Services } from "@/components/features/services";
+import { Testimonials } from "@/components/features/testimonials";
 import { Contact } from "@/components/features/contact";
 import { Footer } from "@/components/features/footer";
 import dynamic from 'next/dynamic';
@@ -19,6 +20,7 @@ export default function Home() {
           <About />
           <Projects />
           <Services />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />
