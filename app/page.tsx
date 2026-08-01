@@ -7,7 +7,7 @@ import { Contact } from "@/components/features/contact";
 import { Footer } from "@/components/features/footer";
 import dynamic from 'next/dynamic';
 
-const Chatbot = dynamic(() => import('@/components/features/chatbot').then(m => ({ default: m.Chatbot })), { ssr: false });
+const Chatbot = dynamic(() => import('@/components/features/chatbot').then(m => ({ default: m.Chatbot })));
 
 export default function Home() {
   return (
