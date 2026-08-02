@@ -11,6 +11,9 @@ const LivePreviewModal = dynamic(() => import('./live-preview-modal').then(m => 
 
 export function Projects() {
   const [previewProject, setPreviewProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   const handlePreviewClick = (e: React.MouseEvent<HTMLAnchorElement>, project: Project) => {
     // If mobile, let standard link behavior happen
@@ -31,7 +34,7 @@ export function Projects() {
         </div>
         
         <div className="flex flex-col gap-8">
-          {projects.map((project, idx) => (
+          {displayedProjects.map((project, idx) => (
             <Card key={idx} className="group overflow-hidden bg-white dark:bg-[#1A1A1A] border-[#E4E4E7] dark:border-[#27272A] hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors shadow-sm flex flex-col md:flex-row">
               
               {/* Image Section */}
@@ -119,6 +122,17 @@ export function Projects() {
             </Card>
           ))}
         </div>
+
+        {projects.length > 3 && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center justify-center whitespace-nowrap bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] hover:text-blue-600 dark:hover:text-blue-500 rounded-lg px-8 h-12 font-medium transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              {showAll ? "Show Less" : "View All Case Studies"}
+            </button>
+          </div>
+        )}
       </div>
 
       <LivePreviewModal 
