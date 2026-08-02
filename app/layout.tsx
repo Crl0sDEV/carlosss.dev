@@ -20,8 +20,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "carlosss.dev | Full Stack Web Developer",
-  description: "Portfolio of Carlos, a Full Stack Web Developer.",
+  metadataBase: new URL("https://carlosssdev.vercel.app"),
+  title: {
+    default: "Carlos Miguel Sandrino | Full Stack Web Developer",
+    template: "%s | Carlos Miguel Sandrino"
+  },
+  description: "I build fast, scalable custom web applications that automate workflows, engage customers, and directly increase revenue for your business.",
+  keywords: ["Carlos Miguel Sandrino", "Full Stack Developer", "Web Developer Philippines", "Next.js Developer", "Freelance Web Developer", "Software Engineer"],
+  openGraph: {
+    title: "Carlos Miguel Sandrino | Full Stack Web Developer",
+    description: "I build fast, scalable custom web applications that drive real business results.",
+    url: "https://carlosssdev.vercel.app",
+    siteName: "Carlos Miguel Portfolio",
+    images: [
+      {
+        url: "/profile.png", 
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  verification: {
+    google: "XrhjcO-Xcvf0l4TVmWp7WdXGEOQ_Cs3v_BW7z3OYV6I",
+  }
 };
 
 export default function RootLayout({
