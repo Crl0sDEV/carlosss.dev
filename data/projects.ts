@@ -12,6 +12,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Prynt SaaS Platform",
+    isCaseStudy: true,
+    description: "An offline-first SaaS platform for SME print shop owners featuring automated Google Drive integration for customer uploads.",
+    problem: "Local print shops struggle with expensive, limited cloud storage and disorganized manual tracking for customer design files.",
+    solution: "Engineered a comprehensive offline-capable dashboard that routes customer uploads directly to the owner's personal Google Drive to bypass storage limits.",
+    impact: "Eliminated premium cloud storage costs and streamlined order management for local printing businesses.",
+    link: "http://prynt-v1.vercel.app/",
+    tech: ["Next.js", "Tailwind CSS", "Supabase", "Google Drive API", "PWA"],
+    img: "/projects/prynt.png",
+  },
+  {
     title: "ApplyflowPH",
     isCaseStudy: true,
     description: "Track your job applications offline and online with ApplyflowPH. A comprehensive job application tracker designed to help you manage your job search effectively.",
