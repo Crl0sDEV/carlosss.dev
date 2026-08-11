@@ -18,7 +18,7 @@ export const projects: Project[] = [
     problem: "Local print shops struggle with expensive, limited cloud storage and disorganized manual tracking for customer design files.",
     solution: "Engineered a comprehensive offline-capable dashboard that routes customer uploads directly to the owner's personal Google Drive to bypass storage limits.",
     impact: "Eliminated premium cloud storage costs and streamlined order management for local printing businesses.",
-    link: "http://prynt-v1.vercel.app/",
+    link: "https://prynt-v1.vercel.app/",
     tech: ["Next.js", "Tailwind CSS", "Supabase", "Google Drive API", "PWA"],
     img: "/projects/prynt.png",
   },
