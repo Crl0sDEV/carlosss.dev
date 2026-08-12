@@ -71,7 +71,7 @@ export default function RootLayout({
       className={cn("h-full", "scroll-smooth", "antialiased", geistSans.variable, geistMono.variable, "font-sans", notoSans.variable, playfairDisplayHeading.variable)}
     >
       <head>
-        <link rel="preconnect" href="https://github-contributions-api.jogruber.de" />
+        <link rel="preconnect" href="https://github-contributions-api.jogruber.de" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://github-contributions-api.jogruber.de" />
         <link rel="preconnect" href="https://xbnpbeddrltrtdomibad.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://xbnpbeddrltrtdomibad.supabase.co" />

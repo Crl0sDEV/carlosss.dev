@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/features/navbar";
 import { Hero } from "@/components/features/hero";
-import { About } from "@/components/features/about";
-import { Projects } from "@/components/features/projects";
 import { Footer } from "@/components/features/footer";
 import dynamic from 'next/dynamic';
 
+const About = dynamic(() => import('@/components/features/about').then(m => ({ default: m.About })));
+const Projects = dynamic(() => import('@/components/features/projects').then(m => ({ default: m.Projects })));
 const Services = dynamic(() => import('@/components/features/services').then(m => ({ default: m.Services })));
 const Testimonials = dynamic(() => import('@/components/features/testimonials').then(m => ({ default: m.Testimonials })));
 const Contact = dynamic(() => import('@/components/features/contact').then(m => ({ default: m.Contact })));
