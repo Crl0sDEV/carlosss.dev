@@ -22,7 +22,7 @@ export function Testimonials() {
             Client Feedback
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
-          <p className="text-[#71717A] dark:text-[#A1A1AA]">
+          <p className="text-[#52525B] dark:text-[#A1A1AA]">
             What people say about working with me.
           </p>
         </div>
@@ -39,8 +39,8 @@ export function Testimonials() {
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#18181B] dark:text-[#F4F4F5]">{testimonial.name}</h4>
-                  <p className="text-xs text-[#71717A] dark:text-[#A1A1AA]">{testimonial.role}</p>
+                  <h3 className="text-sm font-bold text-[#18181B] dark:text-[#F4F4F5]">{testimonial.name}</h3>
+                  <p className="text-xs text-[#52525B] dark:text-[#A1A1AA]">{testimonial.role}</p>
                 </div>
               </div>
             </div>

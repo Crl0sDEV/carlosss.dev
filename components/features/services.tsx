@@ -27,7 +27,7 @@ export function Services() {
             What I Can Do For You
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
-          <p className="text-[#71717A] dark:text-[#A1A1AA]">
+          <p className="text-[#52525B] dark:text-[#A1A1AA]">
             Specialized services I offer for remote teams and freelance clients.
           </p>
         </div>

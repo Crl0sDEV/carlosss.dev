@@ -41,7 +41,7 @@ export function Blog() {
               key={idx} 
               className="group flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 p-6 bg-white dark:bg-[#1A1A1A] rounded-xl border border-[#E4E4E7] dark:border-[#27272A] hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors shadow-sm"
             >
-              <div className="sm:w-32 shrink-0 text-sm font-medium text-[#71717A] dark:text-[#A1A1AA] pt-1">
+              <div className="sm:w-32 shrink-0 text-sm font-medium text-[#52525B] dark:text-[#A1A1AA] pt-1">
                 {post.date}
               </div>
               <div className="flex-1">

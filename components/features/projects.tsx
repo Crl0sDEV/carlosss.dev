@@ -93,12 +93,12 @@ export function Projects() {
                 <CardFooter className="flex items-center justify-between pt-4 border-t border-[#FAFAFA] dark:border-[#27272A] mt-auto">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.slice(0, 4).map((t) => (
-                      <Badge key={t} variant="secondary" className="bg-[#F4F4F5] dark:bg-[#27272A] text-[#71717A] dark:text-[#A1A1AA] hover:bg-[#E4E4E7] dark:hover:bg-[#3F3F46] text-[10px]">
+                      <Badge key={t} variant="secondary" className="bg-[#F4F4F5] dark:bg-[#27272A] text-[#3F3F46] dark:text-[#E4E4E7] hover:bg-[#E4E4E7] dark:hover:bg-[#3F3F46] text-[10px]">
                         {t}
                       </Badge>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="text-[10px] text-[#A1A1AA] font-medium flex items-center px-1">+{project.tech.length - 4}</span>
+                      <span className="text-[10px] text-[#52525B] dark:text-[#A1A1AA] font-medium flex items-center px-1">+{project.tech.length - 4}</span>
                     )}
                   </div>
                   
@@ -113,7 +113,7 @@ export function Projects() {
                       View <span aria-hidden="true">&rarr;</span>
                     </a>
                   ) : (
-                    <span className="shrink-0 ml-4 text-xs font-medium text-[#A1A1AA] flex items-center gap-1">
+                    <span className="shrink-0 ml-4 text-xs font-medium text-[#52525B] dark:text-[#A1A1AA] flex items-center gap-1">
                       Private Repo
                     </span>
                   )}
