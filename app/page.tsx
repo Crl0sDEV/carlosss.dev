@@ -2,12 +2,12 @@ import { Navbar } from "@/components/features/navbar";
 import { Hero } from "@/components/features/hero";
 import { About } from "@/components/features/about";
 import { Projects } from "@/components/features/projects";
-import { Services } from "@/components/features/services";
-import { Testimonials } from "@/components/features/testimonials";
-import { Contact } from "@/components/features/contact";
 import { Footer } from "@/components/features/footer";
 import dynamic from 'next/dynamic';
 
+const Services = dynamic(() => import('@/components/features/services').then(m => ({ default: m.Services })));
+const Testimonials = dynamic(() => import('@/components/features/testimonials').then(m => ({ default: m.Testimonials })));
+const Contact = dynamic(() => import('@/components/features/contact').then(m => ({ default: m.Contact })));
 const Chatbot = dynamic(() => import('@/components/features/chatbot').then(m => ({ default: m.Chatbot })));
 
 export default function Home() {

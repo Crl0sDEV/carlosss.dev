@@ -70,6 +70,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("h-full", "scroll-smooth", "antialiased", geistSans.variable, geistMono.variable, "font-sans", notoSans.variable, playfairDisplayHeading.variable)}
     >
+      <head>
+        <link rel="preconnect" href="https://github-contributions-api.jogruber.de" />
+        <link rel="dns-prefetch" href="https://github-contributions-api.jogruber.de" />
+        <link rel="preconnect" href="https://xbnpbeddrltrtdomibad.supabase.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://xbnpbeddrltrtdomibad.supabase.co" />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"

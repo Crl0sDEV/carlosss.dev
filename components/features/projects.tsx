@@ -47,7 +47,7 @@ export function Projects() {
                       alt={project.title} 
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 40vw"
+                      sizes="(max-width: 768px) 380px, 400px"
                     />
                   </div>
                 ) : (
