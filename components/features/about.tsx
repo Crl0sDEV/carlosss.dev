@@ -1,5 +1,8 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import dynamic from 'next/dynamic';
+import { motion } from "framer-motion";
 
 const GithubContributions = dynamic(() => import('./github-contributions').then(m => ({ default: m.GithubContributions })));
 
@@ -11,7 +14,13 @@ export function About() {
 
   return (
     <section id="about" className="scroll-mt-24">
-      <div className="flex flex-col gap-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="flex flex-col gap-8"
+      >
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
             About Me
@@ -32,19 +41,20 @@ export function About() {
           <h3 className="text-sm font-semibold mb-4 text-[#18181B] dark:text-[#F4F4F5] uppercase tracking-wider">Core Technologies</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <Badge 
-                key={skill}
-                variant="secondary"
-                className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-100 dark:border-blue-900/30"
-              >
-                {skill}
-              </Badge>
+              <motion.div key={skill} whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
+                <Badge 
+                  variant="secondary"
+                  className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-100 dark:border-blue-900/30 cursor-default"
+                >
+                  {skill}
+                </Badge>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <GithubContributions />
-      </div>
+      </motion.div>
     </section>
   );
 }

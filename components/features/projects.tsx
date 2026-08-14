@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { projects, Project } from "@/data/projects";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
+import { motion } from "framer-motion";
 
 const LivePreviewModal = dynamic(() => import('./live-preview-modal').then(m => ({ default: m.LivePreviewModal })), { ssr: false });
 
@@ -47,7 +48,15 @@ export function Projects() {
         
         <div className="flex flex-col gap-8">
           {displayedProjects.map((project, idx) => (
-            <Card key={idx} className="group overflow-hidden bg-white dark:bg-[#1A1A1A] border-[#E4E4E7] dark:border-[#27272A] hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors shadow-sm flex flex-col md:flex-row">
+            <motion.div
+              key={project.title || idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -4 }}
+            >
+              <Card className="group overflow-hidden bg-white dark:bg-[#1A1A1A] border-[#E4E4E7] dark:border-[#27272A] hover:border-blue-200 dark:hover:border-blue-900/50 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col md:flex-row">
               
               {/* Image Section */}
               <div className="md:w-2/5 shrink-0 relative bg-gray-100 dark:bg-[#121212] flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-[#E4E4E7] dark:border-[#27272A]">
@@ -60,6 +69,7 @@ export function Projects() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 380px, 400px"
+                      priority={idx === 0}
                     />
                   </div>
                 ) : (
@@ -132,7 +142,8 @@ export function Projects() {
                 </CardFooter>
               </div>
             </Card>
-          ))}
+          </motion.div>
+        ))}
         </div>
 
         {projects.length > 3 && (

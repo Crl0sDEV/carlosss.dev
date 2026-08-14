@@ -1,4 +1,7 @@
+"use client";
+
 import { MonitorSmartphone, Server, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Services() {
   const services = [
@@ -34,9 +37,14 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/50 transition-colors group"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -5 }}
+              className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/50 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 {service.icon}
@@ -47,7 +55,7 @@ export function Services() {
               <p className="text-[#52525B] dark:text-[#A1A1AA] text-sm leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

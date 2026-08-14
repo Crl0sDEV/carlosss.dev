@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -98,7 +99,13 @@ export function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-24">
-      <div className="flex flex-col gap-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="flex flex-col gap-10"
+      >
         
         {/* Header & Socials */}
         <div className="flex flex-col gap-6">
@@ -115,16 +122,18 @@ export function Contact() {
 
           <div className="flex flex-wrap gap-3 mt-2">
             {socialLinks.map((social) => (
-              <a
+              <motion.a
                 key={social.name}
                 href={social.url}
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] hover:text-blue-600 dark:hover:text-blue-500 hover:border-blue-500/50 shadow-sm transition-all"
               >
                 {social.icon}
                 <span className="text-sm font-medium">{social.name}</span>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -197,7 +206,7 @@ export function Contact() {
             )}
           </Button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }

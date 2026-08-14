@@ -1,4 +1,7 @@
+"use client";
+
 import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Testimonials() {
   const testimonials = [
@@ -29,7 +32,15 @@ export function Testimonials() {
         
         <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm relative group hover:border-blue-500/50 transition-colors">
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -4 }}
+              className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm relative group hover:border-blue-500/50 transition-all duration-300"
+            >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-blue-500/10 dark:text-blue-500/20 group-hover:text-blue-500/30 transition-colors" />
               <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] italic mb-6 relative z-10 leading-relaxed">
                 "{testimonial.text}"
@@ -43,7 +54,7 @@ export function Testimonials() {
                   <p className="text-xs text-[#52525B] dark:text-[#A1A1AA]">{testimonial.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
