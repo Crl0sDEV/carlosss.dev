@@ -42,17 +42,16 @@ export function VisitorCounter() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] text-xs shadow-sm"
+      className="flex items-center justify-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] shadow-sm flex-1"
     >
-      <Eye className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+      <Eye className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400 shrink-0" />
       
-      <span className="flex items-center gap-1.5">
+      <span className="font-bold text-[11px] leading-none text-[#18181B] dark:text-[#F4F4F5]">
         {isLoading ? (
-            <div className="h-4 w-10 bg-gray-200 dark:bg-[#27272A] rounded animate-pulse" />
+          <div className="h-3 w-6 bg-gray-200 dark:bg-[#27272A] rounded animate-pulse" />
         ) : (
-            <strong className="text-[#18181B] dark:text-[#F4F4F5] font-bold">{count?.toLocaleString() || "0"}</strong>
+          count?.toLocaleString() || "0"
         )}
-        <span className="text-[10px] uppercase tracking-wide font-semibold opacity-80">Views</span>
       </span>
     </motion.div>
   );
