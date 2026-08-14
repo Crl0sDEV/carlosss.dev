@@ -9,15 +9,29 @@ export function ScrollProgress() {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
-        const currentProgress = (window.scrollY / totalHeight) * 100;
+        const currentProgress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
         setScrollProgress(currentProgress);
+      } else {
+        setScrollProgress(0);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    // Observe DOM height changes when sections expand/collapse
+    const resizeObserver = new ResizeObserver(() => {
+      handleScroll();
+    });
+    resizeObserver.observe(document.body);
+
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      resizeObserver.disconnect();
+    };
   }, []);
 
   return (

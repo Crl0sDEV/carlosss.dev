@@ -15,6 +15,18 @@ export function Projects() {
 
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
+  const handleToggleShowAll = () => {
+    if (showAll) {
+      const projectsSection = document.getElementById("projects");
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setShowAll(false);
+    } else {
+      setShowAll(true);
+    }
+  };
+
   const handlePreviewClick = (e: React.MouseEvent<HTMLAnchorElement>, project: Project) => {
     // If mobile, let standard link behavior happen
     if (window.innerWidth < 768) return;
@@ -126,7 +138,7 @@ export function Projects() {
         {projects.length > 3 && (
           <div className="flex justify-center mt-4">
             <button
-              onClick={() => setShowAll(!showAll)}
+              onClick={handleToggleShowAll}
               className="inline-flex items-center justify-center whitespace-nowrap bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] hover:text-blue-600 dark:hover:text-blue-500 rounded-lg px-8 h-12 font-medium transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               {showAll ? "Show Less" : "View All Case Studies"}
