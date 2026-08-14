@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import dynamic from 'next/dynamic';
 import { motion } from "framer-motion";
+import { ScrambleText } from "@/components/ui/scramble-text";
 
 const GithubContributions = dynamic(() => import('./github-contributions').then(m => ({ default: m.GithubContributions })));
 
@@ -23,7 +24,7 @@ export function About() {
       >
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            About Me
+            <ScrambleText text="About Me" />
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
         </div>

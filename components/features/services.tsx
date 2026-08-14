@@ -2,6 +2,7 @@
 
 import { MonitorSmartphone, Server, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import { ScrambleText } from "@/components/ui/scramble-text";
 
 export function Services() {
   const services = [
@@ -27,7 +28,7 @@ export function Services() {
       <div className="flex flex-col gap-8">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            What I Can Do For You
+            <ScrambleText text="What I Can Do For You" />
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
           <p className="text-[#52525B] dark:text-[#A1A1AA]">

@@ -7,6 +7,7 @@ import { projects, Project } from "@/data/projects";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { motion } from "framer-motion";
+import { ScrambleText } from "@/components/ui/scramble-text";
 
 const LivePreviewModal = dynamic(() => import('./live-preview-modal').then(m => ({ default: m.LivePreviewModal })), { ssr: false });
 
@@ -41,7 +42,7 @@ export function Projects() {
       <div className="flex flex-col gap-8">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            Selected Projects
+            <ScrambleText text="Selected Projects" />
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
         </div>

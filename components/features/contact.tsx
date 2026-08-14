@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { ScrambleText } from "@/components/ui/scramble-text";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -111,7 +112,7 @@ export function Contact() {
         <div className="flex flex-col gap-6">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-              Let's Work Together
+              <ScrambleText text="Let's Work Together" />
             </h2>
             <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
           </div>
