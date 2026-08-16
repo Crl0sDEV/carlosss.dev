@@ -12,8 +12,8 @@ export function Services() {
       icon: <MonitorSmartphone className="w-6 h-6 text-blue-600 dark:text-blue-500" />
     },
     {
-      title: "Backend & Systems Integration",
-      description: "I design secure, robust databases and APIs that protect your company's data and connect seamlessly with your existing tools.",
+      title: "Custom Dashboards & Internal Tools",
+      description: "I design custom management portals, offline-first SME tools, and automated dashboards that replace manual spreadsheet work and streamline your daily operations.",
       icon: <Server className="w-6 h-6 text-blue-600 dark:text-blue-500" />
     },
     {
