@@ -38,7 +38,7 @@ export function Hero() {
       >
         <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-8">
           <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] leading-tight flex-1">
-            I build custom web apps <br />
+            I build <span className="text-stroke-blue font-extrabold">custom</span> web apps <br />
             <span className="text-blue-600 dark:text-blue-500">
               that drive real business results
             </span>

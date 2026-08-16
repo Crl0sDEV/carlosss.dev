@@ -137,3 +137,13 @@
     display: none;
   }
 }
+
+.text-stroke-blue {
+  -webkit-text-stroke: 1px #2563eb;
+  color: transparent;
+}
+
+.dark .text-stroke-blue {
+  -webkit-text-stroke: 1px #3b82f6;
+  color: transparent;
+}
