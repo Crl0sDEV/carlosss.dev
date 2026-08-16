@@ -63,8 +63,8 @@ export function Hero() {
             {/* Professional Credibility Badge */}
             <div className="flex items-center justify-center gap-1.5 px-2 py-1 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm w-full text-center">
               <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600 dark:bg-blue-500"></span>
               </span>
               <span className="text-[11px] font-semibold text-[#18181B] dark:text-[#F4F4F5] tracking-tight whitespace-nowrap">Available for Hire</span>
             </div>
