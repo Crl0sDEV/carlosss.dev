@@ -1,26 +1,34 @@
 "use client";
 
-import { MonitorSmartphone, Server, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrambleText } from "@/components/ui/scramble-text";
 
 export function Services() {
   const services = [
     {
+      num: "01",
+      tag: "FULL-STACK WEB APPS",
       title: "Custom Web Applications",
-      description: "I build fast, scalable web apps that automate your workflows, engage your customers, and directly increase your revenue.",
-      icon: <MonitorSmartphone className="w-6 h-6 text-blue-600 dark:text-blue-500" />
+      description: "Engineering tailored, high-performance web platforms from scratch. Designed for seamless user engagement, security, and automated workflows that save business hours.",
+      deliverables: ["Next.js App Router", "Supabase / PostgreSQL", "Real-Time Synchronization"],
+      outcome: "Directly increases customer conversion and operational scale.",
     },
     {
-      title: "Custom Dashboards & Internal Tools",
-      description: "I design custom management portals, offline-first SME tools, and automated dashboards that replace manual spreadsheet work and streamline your daily operations.",
-      icon: <Server className="w-6 h-6 text-blue-600 dark:text-blue-500" />
+      num: "02",
+      tag: "ENTERPRISE & SME TOOLS",
+      title: "Dashboards & Internal Systems",
+      description: "Replacing error-prone spreadsheets with custom management portals, inventory ledgers, and offline-first administrative suites built for daily business reliability.",
+      deliverables: ["Offline-First PWA", "IndexedDB Caching", "Custom Analytics"],
+      outcome: "Eliminates data loss and manual tracking overhead.",
     },
     {
-      title: "Performance & SEO Optimization",
-      description: "I fix slow websites so they load instantly on mobile, rank higher on Google, and stop losing you potential customers.",
-      icon: <Zap className="w-6 h-6 text-blue-600 dark:text-blue-500" />
-    }
+      num: "03",
+      tag: "PERFORMANCE & AUDITS",
+      title: "Speed & SEO Optimization",
+      description: "Auditing and optimizing existing web applications for sub-second page loads, mobile responsiveness, and 100/100 Google Lighthouse scores to maximize search visibility.",
+      deliverables: ["100/100 Lighthouse", "Vercel Edge ISR", "Core Web Vitals"],
+      outcome: "Lowers bounce rates and boosts Google organic rankings.",
+    },
   ];
 
   return (
@@ -32,30 +40,58 @@ export function Services() {
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
           <p className="text-[#52525B] dark:text-[#A1A1AA]">
-            Specialized services I offer for remote teams and freelance clients.
+            Specialized engineering solutions focused on measurable business outcomes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Tabbed / Card-based Professional Feature Architecture */}
+        <div className="flex flex-col gap-6">
           {services.map((service, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 25 }}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/50 transition-all duration-300 group"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/50 dark:hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden"
             >
-              <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                {service.icon}
+              {/* Top Row: Index + Category Tag */}
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
+                    {service.num}
+                  </span>
+                  <span className="font-mono text-xs font-semibold tracking-wider text-[#71717A] dark:text-[#A1A1AA] uppercase">
+                    {service.tag}
+                  </span>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-[#18181B] dark:text-[#F4F4F5] mb-2">
+
+              {/* Title & Description */}
+              <h3 className="text-xl font-bold text-[#18181B] dark:text-[#F4F4F5] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-[#52525B] dark:text-[#A1A1AA] text-sm leading-relaxed">
+              <p className="text-[#52525B] dark:text-[#A1A1AA] text-sm leading-relaxed mb-5 max-w-2xl">
                 {service.description}
               </p>
+
+              {/* Deliverable Tags & Outcome Highlight */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#F4F4F5] dark:border-[#27272A]">
+                <div className="flex flex-wrap gap-2">
+                  {service.deliverables.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[#F4F4F5] dark:bg-[#27272A] text-[#3F3F46] dark:text-[#D4D4D8]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <div className="text-xs font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+                  {service.outcome}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

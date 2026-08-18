@@ -1,31 +1,38 @@
 "use client";
 
-import { WifiOff, Gauge, Rocket, MessageSquareCode } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrambleText } from "@/components/ui/scramble-text";
 
 export function WhyWorkWithMe() {
   const pillars = [
     {
-      icon: <WifiOff className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+      num: "01",
+      category: "ARCHITECTURE",
       title: "Offline-First & Resilient Engineering",
-      description: "I build apps designed for real-world network conditions—unstable Wi-Fi, low bandwidth, and zero data loss—ensuring your users never hit dead ends."
+      description: "Applications designed for unstable networks and low-bandwidth environments. Automatic background synchronization ensures zero data loss during connectivity drops.",
+      metric: "Zero Data Loss",
     },
     {
-      icon: <Gauge className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
-      title: "Sub-Second Speed & 100/100 Lighthouse",
-      description: "I optimize every kilobyte for lightning-fast initial loads and 60fps animations, keeping bounce rates low and Google search rankings high."
+      num: "02",
+      category: "PERFORMANCE",
+      title: "Sub-Second Load & 100/100 Lighthouse",
+      description: "Optimizing bundle sizes, database queries, and static asset caching to achieve instant page loads, smooth 60fps UI, and top Google search rankings.",
+      metric: "100/100 Core Vitals",
     },
     {
-      icon: <Rocket className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
-      title: "Full Product & Business Ownership",
-      description: "I don't just ship raw code. I take your project from initial problem discovery to live Vercel deployment with clear business metrics in mind."
+      num: "03",
+      category: "OWNERSHIP",
+      title: "Full Product & Business Accountability",
+      description: "I don't just write raw code. I collaborate from problem discovery to live Vercel production deployment, focusing on software that achieves business goals.",
+      metric: "End-to-End Shipping",
     },
     {
-      icon: <MessageSquareCode className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
-      title: "Async & Remote Ready Communication",
-      description: "Proactive, clear updates tailored for global timezones with live staging preview links so you're always informed on milestone progress."
-    }
+      num: "04",
+      category: "COMMUNICATION",
+      title: "Async & Global Timezone Ready",
+      description: "Proactive status updates, clear milestone documentation, and live staging preview links so you always have total clarity on project progress.",
+      metric: "Live Staging Previews",
+    },
   ];
 
   return (
@@ -37,33 +44,45 @@ export function WhyWorkWithMe() {
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
           <p className="text-[#52525B] dark:text-[#A1A1AA]">
-            How I deliver tangible value and peace of mind for founders and remote teams.
+            Core engineering standards and principles I bring to every client collaboration.
           </p>
         </div>
 
-        {/* Horizontal Row List layout for distinct visual variety */}
-        <div className="flex flex-col gap-4">
+        {/* 2x2 Bento Executive Guarantee Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pillars.map((pillar, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: idx * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-              whileHover={{ x: 6 }}
-              className="flex items-start gap-4 p-5 rounded-xl bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/40 transition-all duration-300 group"
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group"
             >
-              {/* Pill-style circular icon badge */}
-              <div className="mt-0.5 w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200/80 dark:border-blue-800/40 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/60 transition-transform">
-                {pillar.icon}
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-base font-bold text-[#18181B] dark:text-[#F4F4F5] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {/* Background Monospace Number Watermark */}
+              <span className="absolute top-3 right-4 font-mono text-4xl font-extrabold text-[#E4E4E7]/60 dark:text-[#27272A]/80 select-none group-hover:text-blue-500/20 transition-colors">
+                {pillar.num}
+              </span>
+
+              <div>
+                <span className="font-mono text-[11px] font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase block mb-2">
+                  // {pillar.category}
+                </span>
+                <h3 className="text-lg font-bold text-[#18181B] dark:text-[#F4F4F5] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+                <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed mb-6">
                   {pillar.description}
                 </p>
+              </div>
+
+              <div className="pt-3 border-t border-[#F4F4F5] dark:border-[#27272A] flex items-center justify-between">
+                <span className="text-xs font-mono font-medium text-[#71717A] dark:text-[#A1A1AA]">
+                  GUARANTEED STANDARD
+                </span>
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
+                  {pillar.metric}
+                </span>
               </div>
             </motion.div>
           ))}
