@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Tablet, Smartphone, ExternalLink, X } from "lucide-react";
 import { Project } from "@/data/projects";
@@ -12,8 +13,15 @@ interface LivePreviewModalProps {
 
 export function LivePreviewModal({ project, onClose }: LivePreviewModalProps) {
   const [viewMode, setViewMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const modalContent = (
     <AnimatePresence>
       {project && project.link && (
         <motion.div
@@ -21,10 +29,10 @@ export function LivePreviewModal({ project, onClose }: LivePreviewModalProps) {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex flex-col bg-[#FAFAFA]/95 dark:bg-[#121212]/95 backdrop-blur-md"
+          className="fixed inset-0 z-[9999] flex flex-col bg-[#FAFAFA]/95 dark:bg-[#121212]/95 backdrop-blur-md"
         >
           {/* Modal Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#1A1A1A] shadow-sm">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[#E4E4E7] dark:border-[#27272A] bg-white dark:bg-[#1A1A1A] shadow-sm shrink-0">
             <div className="flex items-center gap-6">
                <h3 className="text-sm md:text-base font-bold text-[#18181B] dark:text-[#F4F4F5] truncate max-w-[150px] md:max-w-xs lg:max-w-md">
                  {project.title}
@@ -95,4 +103,6 @@ export function LivePreviewModal({ project, onClose }: LivePreviewModalProps) {
       )}
     </AnimatePresence>
   );
+
+  return createPortal(modalContent, document.body);
 }

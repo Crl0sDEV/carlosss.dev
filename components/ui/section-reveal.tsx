@@ -16,19 +16,19 @@ export function SectionReveal({ children, className = "" }: SectionRevealProps) 
     offset: ["start end", "end start"],
   });
 
-  // 3D Wheel / Cylindrical Roll effect parameters
-  // As section scrolls in: rotateX tilts backward (+16deg), scale 0.94
+  // 3D Cylinder / Wheel Roll effect parameters
+  // As section scrolls in: rotateX tilts backward (+18deg), scale 0.92
   // When in focus center: rotateX 0deg, scale 1
-  // As section scrolls out: rotateX tilts forward (-16deg), scale 0.94
-  const rotateX = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], [16, 0, 0, -16]);
-  const scale = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], [0.93, 1, 1, 0.93]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.4, 1, 1, 0.4]);
+  // As section scrolls out: rotateX tilts forward (-18deg), scale 0.92
+  const rotateX = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], [18, 0, 0, -18]);
+  const scale = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], [0.92, 1, 1, 0.92]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.35, 1, 1, 0.35]);
 
   return (
     <div
       ref={containerRef}
       style={{ perspective: "1200px" }}
-      className="relative my-4"
+      className="relative my-6"
     >
       <motion.div
         style={{
