@@ -1,21 +1,31 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ScrambleText } from "@/components/ui/scramble-text";
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { CardTilt } from "@/components/ui/card-tilt";
 
-const GithubContributions = dynamic(() => import('./github-contributions').then(m => ({ default: m.GithubContributions })));
+const GithubContributions = dynamic(
+  () => import("./github-contributions").then((m) => ({ default: m.GithubContributions }))
+);
 
 export function About() {
   const skills = [
-    "TypeScript", "React", "Next.js", "Node.js", 
-    "PostgreSQL", "Supabase", "Tailwind CSS", "GraphQL"
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "PostgreSQL",
+    "Supabase",
+    "Tailwind CSS",
+    "GraphQL",
   ];
 
   return (
     <section id="about" className="scroll-mt-24">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
@@ -28,31 +38,38 @@ export function About() {
           </h2>
           <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
         </div>
-        
+
         <div className="space-y-4 text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
           <p>
-            I am a passionate Full Stack Web Developer with a deep appreciation for building elegant, robust, and scalable solutions. With years of experience across the full stack, I specialize in crafting digital products that solve real-world problems.
+            I am a passionate Full Stack Web Developer with a deep appreciation for building elegant,
+            robust, and scalable solutions. With years of experience across the full stack, I
+            specialize in crafting digital products that solve real-world problems.
           </p>
           <p>
-            My approach combines architectural rigor with a strong focus on user experience and performance. I believe in clean code, automated testing, and continuous deployment.
+            My approach combines architectural rigor with a strong focus on user experience and
+            performance. I believe in clean code, automated testing, and continuous deployment.
           </p>
         </div>
-        
-        <div className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm">
-          <h3 className="text-sm font-semibold mb-4 text-[#18181B] dark:text-[#F4F4F5] uppercase tracking-wider">Core Technologies</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <motion.div key={skill} whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
-                <Badge 
-                  variant="secondary"
-                  className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-100 dark:border-blue-900/30 cursor-default"
-                >
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
+
+        <CardTilt maxTilt={3} scale={1.01}>
+          <div className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm">
+            <h3 className="text-sm font-semibold mb-4 text-[#18181B] dark:text-[#F4F4F5] uppercase tracking-wider">
+              Core Technologies
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <MagneticButton key={skill} strength={0.35}>
+                  <Badge
+                    variant="secondary"
+                    className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-100 dark:border-blue-900/30 cursor-default px-3 py-1 text-xs"
+                  >
+                    {skill}
+                  </Badge>
+                </MagneticButton>
+              ))}
+            </div>
           </div>
-        </div>
+        </CardTilt>
 
         <GithubContributions />
       </motion.div>

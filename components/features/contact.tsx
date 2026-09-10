@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrambleText } from "@/components/ui/scramble-text";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -46,7 +47,6 @@ export function Contact() {
     
     const formData = new FormData(e.currentTarget);
     
-    // Add the Web3Forms Access Key from the environment variables
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
     if (accessKey) {
       formData.append("access_key", accessKey);
@@ -62,7 +62,6 @@ export function Contact() {
         setStatus("success");
         (e.target as HTMLFormElement).reset();
         
-        // Reset success message after 3 seconds
         setTimeout(() => setStatus("idle"), 3000);
       } else {
         setStatus("error");
@@ -107,7 +106,6 @@ export function Contact() {
         transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
         className="flex flex-col gap-10"
       >
-        
         {/* Header & Socials */}
         <div className="flex flex-col gap-6">
           <div>
@@ -123,23 +121,22 @@ export function Contact() {
 
           <div className="flex flex-wrap gap-3 mt-2">
             {socialLinks.map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] hover:text-blue-600 dark:hover:text-blue-500 hover:border-blue-500/50 shadow-sm transition-all"
-              >
-                {social.icon}
-                <span className="text-sm font-medium">{social.name}</span>
-              </motion.a>
+              <MagneticButton key={social.name} strength={0.35}>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] hover:text-blue-600 dark:hover:text-blue-500 hover:border-blue-500/50 shadow-sm transition-all text-sm font-medium"
+                >
+                  {social.icon}
+                  <span>{social.name}</span>
+                </a>
+              </MagneticButton>
             ))}
           </div>
         </div>
         
-        {/* Form (Wide) */}
+        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-[#1A1A1A] p-8 rounded-2xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm w-full">
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
@@ -178,7 +175,6 @@ export function Contact() {
             />
           </div>
           
-          {/* Web3Forms Honeypot Spam Protection */}
           <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
           <Button 

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/features/scroll-progress";
 import { AmbientSpotlight } from "@/components/features/ambient-spotlight";
+import { GsapProvider } from "@/components/features/gsap-provider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -81,11 +82,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ScrollProgress />
-          <AmbientSpotlight />
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
+          <GsapProvider>
+            <ScrollProgress />
+            <AmbientSpotlight />
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
+          </GsapProvider>
         </ThemeProvider>
       </body>
     </html>
