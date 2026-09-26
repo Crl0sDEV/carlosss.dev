@@ -16,14 +16,14 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAFAFA]/90 backdrop-blur-md dark:bg-[#121212]/90 border-b border-[#E4E4E7] dark:border-[#27272A] shadow-sm">
-      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 liquid-glass-navbar transition-colors duration-300">
+      <div className="max-w-5xl lg:max-w-6xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         <MagneticButton strength={0.25}>
           <a
             href="#home"
             className="text-xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] inline-block"
           >
-            carlosss<span className="text-blue-600 dark:text-blue-500">.dev</span>
+            carlosss<span className="text-red-500 dark:text-red-400">.dev</span>
           </a>
         </MagneticButton>
 
@@ -33,7 +33,7 @@ export function Navbar() {
             <MagneticButton key={link.name} strength={0.3}>
               <a
                 href={link.href}
-                className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors inline-block px-1 py-0.5"
+                className="hover:text-red-500 dark:hover:text-red-400 transition-colors inline-block px-1 py-0.5"
               >
                 {link.name}
               </a>
@@ -74,7 +74,7 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden absolute top-16 left-0 right-0 bg-[#FAFAFA] dark:bg-[#121212] border-b border-[#E4E4E7] dark:border-[#27272A] shadow-xl overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute top-16 left-0 right-0 liquid-glass-navbar shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -83,7 +83,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-base font-medium text-[#52525B] dark:text-[#A1A1AA] hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+              className="text-base font-medium text-[#52525B] dark:text-[#A1A1AA] hover:text-red-500 dark:hover:text-red-400 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.name}

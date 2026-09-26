@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/features/scroll-progress";
-import { AmbientSpotlight } from "@/components/features/ambient-spotlight";
 import { GsapProvider } from "@/components/features/gsap-provider";
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-heading",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://carlosssdev.vercel.app"),
@@ -67,7 +55,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "scroll-smooth", "antialiased", plusJakartaSans.variable, spaceGrotesk.variable, "font-sans")}
+      className={cn("h-full", "scroll-smooth", "antialiased", "font-sans")}
     >
       <head>
         <link rel="preconnect" href="https://github-contributions-api.jogruber.de" crossOrigin="anonymous" />
@@ -84,7 +72,6 @@ export default function RootLayout({
         >
           <GsapProvider>
             <ScrollProgress />
-            <AmbientSpotlight />
             <TooltipProvider>
               {children}
             </TooltipProvider>

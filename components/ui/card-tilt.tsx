@@ -15,22 +15,18 @@ interface CardTiltProps extends React.HTMLAttributes<HTMLDivElement> {
 export function CardTilt({
   children,
   maxTilt = 6,
-  glare = true,
+  glare = false,
   scale = 1.015,
   className = "",
   ...props
 }: CardTiltProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const glareRef = useRef<HTMLDivElement>(null);
 
   const rotateXTo = useRef<gsap.QuickToFunc | null>(null);
   const rotateYTo = useRef<gsap.QuickToFunc | null>(null);
   const scaleXTo = useRef<gsap.QuickToFunc | null>(null);
   const scaleYTo = useRef<gsap.QuickToFunc | null>(null);
-  const glareXTo = useRef<gsap.QuickToFunc | null>(null);
-  const glareYTo = useRef<gsap.QuickToFunc | null>(null);
-  const glareOpacityTo = useRef<gsap.QuickToFunc | null>(null);
 
   useGSAP(
     () => {
@@ -52,21 +48,6 @@ export function CardTilt({
         duration: 0.4,
         ease: "power2.out",
       });
-
-      if (glare && glareRef.current) {
-        glareXTo.current = gsap.quickTo(glareRef.current, "x", {
-          duration: 0.2,
-          ease: "power1.out",
-        });
-        glareYTo.current = gsap.quickTo(glareRef.current, "y", {
-          duration: 0.2,
-          ease: "power1.out",
-        });
-        glareOpacityTo.current = gsap.quickTo(glareRef.current, "opacity", {
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      }
     },
     { scope: cardRef }
   );
@@ -92,12 +73,6 @@ export function CardTilt({
     rotateYTo.current(normalizedX * maxTilt);
     scaleXTo.current(scale);
     scaleYTo.current(scale);
-
-    if (glare && glareXTo.current && glareYTo.current && glareOpacityTo.current && glareRef.current) {
-      glareXTo.current(x - 120);
-      glareYTo.current(y - 120);
-      glareOpacityTo.current(0.12);
-    }
   };
 
   const handleMouseLeave = () => {
@@ -107,10 +82,6 @@ export function CardTilt({
     rotateYTo.current(0);
     scaleXTo.current(1);
     scaleYTo.current(1);
-
-    if (glare && glareOpacityTo.current) {
-      glareOpacityTo.current(0);
-    }
   };
 
   return (
@@ -128,13 +99,6 @@ export function CardTilt({
         className="h-full w-full will-change-transform rounded-2xl"
       >
         {children}
-        {glare && (
-          <div
-            ref={glareRef}
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-10 -left-10 w-60 h-60 rounded-full bg-radial from-blue-400 to-transparent blur-xl opacity-0 transition-opacity"
-          />
-        )}
       </div>
     </div>
   );

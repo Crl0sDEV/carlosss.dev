@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { ScrambleText } from "@/components/ui/scramble-text";
-import { CardTilt } from "@/components/ui/card-tilt";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
+import { GlassCard } from "@/components/ui/glass-card";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 export function Services() {
   const containerRef = useRef<HTMLElement>(null);
@@ -12,52 +13,46 @@ export function Services() {
   const services = [
     {
       num: "01",
-      tag: "FULL-STACK WEB APPS",
-      title: "Custom Web Applications",
+      title: "Web Application Development",
       description:
-        "Engineering tailored, high-performance web platforms from scratch. Designed for seamless user engagement, security, and automated workflows that save business hours.",
-      deliverables: ["Next.js App Router", "Supabase / PostgreSQL", "Real-Time Synchronization"],
-      outcome: "Directly increases customer conversion and operational scale.",
+        "Building tailored, responsive web applications from scratch using modern frameworks. Focused on clean code, smooth navigation, and reliable performance.",
+      deliverables: ["Next.js & React", "Supabase & PostgreSQL", "Authentication & Security", "Fast Deployment"],
     },
     {
       num: "02",
-      tag: "ENTERPRISE & SME TOOLS",
-      title: "Dashboards & Internal Systems",
+      title: "Frontend & UI Design",
       description:
-        "Replacing error-prone spreadsheets with custom management portals, inventory ledgers, and offline-first administrative suites built for daily business reliability.",
-      deliverables: ["Offline-First PWA", "IndexedDB Caching", "Custom Analytics"],
-      outcome: "Eliminates data loss and manual tracking overhead.",
+        "Creating beautiful, modern, and mobile-friendly user interfaces that match your brand identity and provide an intuitive experience for your visitors.",
+      deliverables: ["Responsive Layouts", "Modern UI Components", "Mobile-First Design", "Performance Optimization"],
     },
     {
       num: "03",
-      tag: "PERFORMANCE & AUDITS",
-      title: "Speed & SEO Optimization",
+      title: "Backend & Database Integration",
       description:
-        "Auditing and optimizing existing web applications for sub-second page loads, mobile responsiveness, and 100/100 Google Lighthouse scores to maximize search visibility.",
-      deliverables: ["100/100 Lighthouse", "Vercel Edge ISR", "Core Web Vitals"],
-      outcome: "Lowers bounce rates and boosts Google organic rankings.",
+        "Setting up reliable databases, custom APIs, and backend logic to securely manage your application data and keep everything running smoothly.",
+      deliverables: ["Database Setup", "API Integration", "Secure Data Flow", "Cloud Hosting"],
     },
   ];
 
   useGSAP(
     () => {
-      const cards = gsap.utils.toArray<HTMLElement>(".service-card-wrapper");
-      if (!cards.length) return;
+      const rows = gsap.utils.toArray<HTMLElement>(".service-card");
+      if (!rows.length) return;
 
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion) return;
 
-      cards.forEach((card, idx) => {
-        gsap.from(card, {
+      rows.forEach((row, idx) => {
+        gsap.from(row, {
           scrollTrigger: {
-            trigger: card,
-            start: "top 88%",
+            trigger: row,
+            start: "top 90%",
             toggleActions: "play none none none",
           },
-          y: 35,
+          y: 20,
           opacity: 0,
-          duration: 0.6,
-          delay: idx * 0.1,
+          duration: 0.55,
+          delay: idx * 0.08,
           ease: "power3.out",
         });
       });
@@ -68,62 +63,45 @@ export function Services() {
   return (
     <section ref={containerRef} id="services" className="scroll-mt-24">
       <div className="flex flex-col gap-8">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            <ScrambleText text="What I Can Do For You" />
-          </h2>
-          <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
-          <p className="text-[#52525B] dark:text-[#A1A1AA]">
-            Specialized engineering solutions focused on measurable business outcomes.
-          </p>
-        </div>
+        <SectionHeading
+          title="Services"
+          description="What I can help you build."
+        />
 
-        {/* Card-based Professional Feature Architecture */}
-        <div className="flex flex-col gap-6">
+        {/* Services Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="service-card-wrapper">
-              <CardTilt maxTilt={3} scale={1.01}>
-                <div className="group p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/50 dark:hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden">
-                  {/* Top Row: Index + Category Tag */}
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
-                        {service.num}
-                      </span>
-                      <span className="font-mono text-xs font-semibold tracking-wider text-[#71717A] dark:text-[#A1A1AA] uppercase">
-                        {service.tag}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-[#18181B] dark:text-[#F4F4F5] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-[#52525B] dark:text-[#A1A1AA] text-sm leading-relaxed mb-5 max-w-2xl">
-                    {service.description}
-                  </p>
-
-                  {/* Deliverable Tags & Outcome Highlight */}
-                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#F4F4F5] dark:border-[#27272A]">
-                    <div className="flex flex-wrap gap-2">
-                      {service.deliverables.map((item, idx) => (
-                        <span
-                          key={idx}
-                          className="text-xs font-medium px-2.5 py-1 rounded-md bg-[#F4F4F5] dark:bg-[#27272A] text-[#3F3F46] dark:text-[#D4D4D8]"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="text-xs font-medium text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                      {service.outcome}
-                    </div>
-                  </div>
+            <GlassCard
+              key={index}
+              maxTilt={8}
+              className="service-card group liquid-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between gap-5 transition-all duration-300 shadow-sm hover:shadow-xl h-full"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-red-500 dark:text-red-400">
+                    [{service.num}]
+                  </span>
                 </div>
-              </CardTilt>
-            </div>
+
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+                  {service.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Deliverables List */}
+              <div className="pt-4 border-t border-black/5 dark:border-white/10 flex flex-wrap gap-2 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+                {service.deliverables.map((item, idx) => (
+                  <span key={idx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md liquid-glass-subtle">
+                    <span className="text-red-500 dark:text-red-400 font-bold">&bull;</span>
+                    <span>{item}</span>
+                  </span>
+                ))}
+              </div>
+            </GlassCard>
           ))}
         </div>
       </div>

@@ -7,8 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { ScrambleText } from "@/components/ui/scramble-text";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { GlassCard } from "@/components/ui/glass-card";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -107,26 +108,20 @@ export function Contact() {
         className="flex flex-col gap-10"
       >
         {/* Header & Socials */}
-        <div className="flex flex-col gap-6">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-              <ScrambleText text="Let's Work Together" />
-            </h2>
-            <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
-          </div>
-          
-          <p className="text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed max-w-xl">
-            Currently available for freelance opportunities and full-time roles. If you have a project that needs some creative magic, I'd love to hear about it.
-          </p>
+        <div className="flex flex-col gap-6 text-center items-center">
+          <SectionHeading
+            title="Contact Me"
+            description="Have a project in mind or want to work together? Feel free to send a message and I'll get back to you soon."
+          />
 
-          <div className="flex flex-wrap gap-3 mt-2">
+          <div className="flex flex-wrap justify-center gap-3 mt-2">
             {socialLinks.map((social) => (
               <MagneticButton key={social.name} strength={0.35}>
                 <a
                   href={social.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#52525B] dark:text-[#A1A1AA] hover:text-blue-600 dark:hover:text-blue-500 hover:border-blue-500/50 shadow-sm transition-all text-sm font-medium"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full liquid-glass-subtle liquid-glass-interactive text-neutral-600 dark:text-neutral-300 hover:text-red-500 dark:hover:text-red-400 text-sm font-medium transition-colors"
                 >
                   {social.icon}
                   <span>{social.name}</span>
@@ -137,72 +132,79 @@ export function Contact() {
         </div>
         
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-[#1A1A1A] p-8 rounded-2xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm w-full">
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div className="space-y-2">
-              <Label htmlFor="name" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Name</Label>
-              <Input 
-                id="name"
-                name="name"
-                type="text" 
-                required
-                className="rounded-lg border-[#E4E4E7] dark:border-[#27272A] bg-[#FAFAFA] dark:bg-[#121212] focus-visible:ring-blue-500 text-[#18181B] dark:text-[#F4F4F5]"
-                placeholder="John Doe"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Email</Label>
-              <Input 
-                id="email"
-                name="email"
-                type="email" 
-                required
-                className="rounded-lg border-[#E4E4E7] dark:border-[#27272A] bg-[#FAFAFA] dark:bg-[#121212] focus-visible:ring-blue-500 text-[#18181B] dark:text-[#F4F4F5]"
-                placeholder="john@example.com"
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="message" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Message</Label>
-            <Textarea 
-              id="message"
-              name="message"
-              required
-              rows={5}
-              className="rounded-lg border-[#E4E4E7] dark:border-[#27272A] bg-[#FAFAFA] dark:bg-[#121212] focus-visible:ring-blue-500 text-[#18181B] dark:text-[#F4F4F5] resize-none"
-              placeholder="Tell me about your project..."
-            />
-          </div>
-          
-          <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
-          <Button 
-            type="submit" 
-            disabled={status === "loading" || status === "success"}
-            className={`w-full h-12 text-sm font-medium transition-all ${
-              status === "success" 
-                ? "bg-green-500 hover:bg-green-600 text-white shadow-green-500/20" 
-                : "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20"
-            } shadow-sm`}
+        <div className="max-w-2xl mx-auto w-full">
+          <GlassCard
+            maxTilt={4}
+            className="liquid-glass p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300"
           >
-            {status === "loading" ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Sending Message...
-              </>
-            ) : status === "success" ? (
-              <>
-                <CheckCircle2 className="mr-2 h-4 w-4" />
-                Message Sent Successfully!
-              </>
-            ) : status === "error" ? (
-              "Failed to send. Try again."
-            ) : (
-              "Send Message"
-            )}
-          </Button>
-        </form>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Name</Label>
+                  <Input 
+                    id="name"
+                    name="name"
+                    type="text" 
+                    required
+                    className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5]"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Email</Label>
+                  <Input 
+                    id="email"
+                    name="email"
+                    type="email" 
+                    required
+                    className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5]"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm font-medium text-[#18181B] dark:text-[#F4F4F5]">Message</Label>
+                <Textarea 
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5] resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+              
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
+              <Button 
+                type="submit" 
+                disabled={status === "loading" || status === "success"}
+                className={`w-full h-12 text-sm font-medium transition-all ${
+                  status === "success" 
+                    ? "bg-green-500 hover:bg-green-600 text-white shadow-green-500/20" 
+                    : "bg-red-500 hover:bg-red-600 text-white shadow-red-500/20"
+                } shadow-sm`}
+              >
+                {status === "loading" ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending Message...
+                  </>
+                ) : status === "success" ? (
+                  <>
+                    <CheckCircle2 className="mr-2 h-4 w-4" />
+                    Message Sent Successfully!
+                  </>
+                ) : status === "error" ? (
+                  "Failed to send. Try again."
+                ) : (
+                  "Send Message"
+                )}
+              </Button>
+            </form>
+          </GlassCard>
+        </div>
       </motion.div>
     </section>
   );

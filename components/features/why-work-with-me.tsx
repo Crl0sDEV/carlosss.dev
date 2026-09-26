@@ -1,10 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import { ScrambleText } from "@/components/ui/scramble-text";
-import { CardTilt } from "@/components/ui/card-tilt";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { GlassCard } from "@/components/ui/glass-card";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 export function WhyWorkWithMe() {
   const containerRef = useRef<HTMLElement>(null);
@@ -12,57 +12,53 @@ export function WhyWorkWithMe() {
   const pillars = [
     {
       num: "01",
-      category: "ARCHITECTURE",
-      title: "Offline-First & Resilient Engineering",
+      title: "Clean & Maintainable Code",
       description:
-        "Applications designed for unstable networks and low-bandwidth environments. Automatic background synchronization ensures zero data loss during connectivity drops.",
-      metric: "Zero Data Loss",
+        "I write well-structured, readable code that is easy to update and scale as your project grows over time.",
+      tag: "Code Quality",
     },
     {
       num: "02",
-      category: "PERFORMANCE",
-      title: "Sub-Second Load & 100/100 Lighthouse",
+      title: "Fast & Responsive Design",
       description:
-        "Optimizing bundle sizes, database queries, and static asset caching to achieve instant page loads, smooth 60fps UI, and top Google search rankings.",
-      metric: "100/100 Core Vitals",
+        "Every application is built to load quickly and work seamlessly across phones, tablets, and desktop computers.",
+      tag: "Mobile-Friendly",
     },
     {
       num: "03",
-      category: "OWNERSHIP",
-      title: "Full Product & Business Accountability",
+      title: "Reliable Communication",
       description:
-        "I don't just write raw code. I collaborate from problem discovery to live Vercel production deployment, focusing on software that achieves business goals.",
-      metric: "End-to-End Shipping",
+        "Clear, honest updates throughout the project so you always know the current status and next steps.",
+      tag: "Direct Updates",
     },
     {
       num: "04",
-      category: "COMMUNICATION",
-      title: "Async & Global Timezone Ready",
+      title: "End-to-End Delivery",
       description:
-        "Proactive status updates, clear milestone documentation, and live staging preview links so you always have total clarity on project progress.",
-      metric: "Live Staging Previews",
+        "From initial development to live deployment, I make sure everything works properly before handing it over.",
+      tag: "Full Support",
     },
   ];
 
   useGSAP(
     () => {
-      const cards = gsap.utils.toArray<HTMLElement>(".bento-card-wrapper");
-      if (!cards.length) return;
+      const rows = gsap.utils.toArray<HTMLElement>(".pillar-card");
+      if (!rows.length) return;
 
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion) return;
 
-      cards.forEach((card, idx) => {
-        gsap.from(card, {
+      rows.forEach((row, idx) => {
+        gsap.from(row, {
           scrollTrigger: {
-            trigger: card,
-            start: "top 88%",
+            trigger: row,
+            start: "top 90%",
             toggleActions: "play none none none",
           },
-          y: 35,
+          y: 20,
           opacity: 0,
-          duration: 0.6,
-          delay: (idx % 2) * 0.1,
+          duration: 0.55,
+          delay: idx * 0.08,
           ease: "power3.out",
         });
       });
@@ -73,50 +69,39 @@ export function WhyWorkWithMe() {
   return (
     <section ref={containerRef} id="why-me" className="scroll-mt-24">
       <div className="flex flex-col gap-8">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            <ScrambleText text="Why Work With Me" />
-          </h2>
-          <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full mb-4" />
-          <p className="text-[#52525B] dark:text-[#A1A1AA]">
-            Core engineering standards and principles I bring to every client collaboration.
-          </p>
-        </div>
+        <SectionHeading
+          title="Why Work With Me"
+          description="What you can expect when collaborating together."
+        />
 
-        {/* 2x2 Bento Executive Guarantee Grid */}
+        {/* Reasons Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pillars.map((pillar, idx) => (
-            <div key={idx} className="bento-card-wrapper h-full">
-              <CardTilt maxTilt={5} scale={1.02} className="h-full">
-                <div className="p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] shadow-sm hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group h-full">
-                  {/* Background Monospace Number Watermark */}
-                  <span className="absolute top-3 right-4 font-mono text-4xl font-extrabold text-[#E4E4E7]/60 dark:text-[#27272A]/80 select-none group-hover:text-blue-500/20 transition-colors">
-                    {pillar.num}
+            <GlassCard
+              key={idx}
+              maxTilt={8}
+              className="pillar-card group liquid-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between gap-5 transition-all duration-300 shadow-sm hover:shadow-xl h-full"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-red-500 dark:text-red-400">
+                    [{pillar.num}]
                   </span>
-
-                  <div>
-                    <span className="font-mono text-[11px] font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase block mb-2">
-                      // {pillar.category}
-                    </span>
-                    <h3 className="text-lg font-bold text-[#18181B] dark:text-[#F4F4F5] mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed mb-6">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-[#F4F4F5] dark:border-[#27272A] flex items-center justify-between mt-auto">
-                    <span className="text-xs font-mono font-medium text-[#71717A] dark:text-[#A1A1AA]">
-                      GUARANTEED STANDARD
-                    </span>
-                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
-                      {pillar.metric}
-                    </span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md liquid-glass-subtle text-xs font-mono text-neutral-700 dark:text-neutral-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-red-400" />
+                    <span>{pillar.tag}</span>
                   </div>
                 </div>
-              </CardTilt>
-            </div>
+
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+                  {pillar.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                  {pillar.description}
+                </p>
+              </div>
+            </GlassCard>
           ))}
         </div>
       </div>

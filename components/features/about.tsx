@@ -1,26 +1,34 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { ScrambleText } from "@/components/ui/scramble-text";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import { CardTilt } from "@/components/ui/card-tilt";
+import { GlassCard } from "@/components/ui/glass-card";
+import { VelocityMarquee } from "@/components/ui/velocity-marquee";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 const GithubContributions = dynamic(
   () => import("./github-contributions").then((m) => ({ default: m.GithubContributions }))
 );
 
 export function About() {
-  const skills = [
+  const frontendSkills = [
     "TypeScript",
-    "React",
+    "React 19",
     "Next.js",
+    "Tailwind CSS",
+    "GSAP Animations",
+    "Framer Motion",
+    "Responsive UI",
+  ];
+
+  const backendSkills = [
     "Node.js",
     "PostgreSQL",
     "Supabase",
-    "Tailwind CSS",
+    "REST APIs",
     "GraphQL",
+    "Git & GitHub",
+    "Performance Optimization",
   ];
 
   return (
@@ -32,44 +40,26 @@ export function About() {
         transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
         className="flex flex-col gap-8"
       >
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] mb-2">
-            <ScrambleText text="About Me" />
-          </h2>
-          <div className="h-1 w-12 bg-blue-600 dark:bg-blue-500 rounded-full" />
-        </div>
+        <SectionHeading title="About Me" />
 
-        <div className="space-y-4 text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+        <div className="space-y-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl mx-auto text-center">
           <p>
-            I am a passionate Full Stack Web Developer with a deep appreciation for building elegant,
-            robust, and scalable solutions. With years of experience across the full stack, I
-            specialize in crafting digital products that solve real-world problems.
-          </p>
-          <p>
-            My approach combines architectural rigor with a strong focus on user experience and
-            performance. I believe in clean code, automated testing, and continuous deployment.
+            I&apos;m a full-stack developer who enjoys building clean, functional, and responsive websites. I work with modern tools like Next.js, React, Tailwind CSS, and Supabase to build web applications that are easy to use and maintain.
           </p>
         </div>
 
-        <CardTilt maxTilt={3} scale={1.01}>
-          <div className="bg-white dark:bg-[#1A1A1A] p-6 rounded-xl border border-[#E4E4E7] dark:border-[#27272A] shadow-sm">
-            <h3 className="text-sm font-semibold mb-4 text-[#18181B] dark:text-[#F4F4F5] uppercase tracking-wider">
-              Core Technologies
+        <GlassCard
+          maxTilt={4}
+          className="liquid-glass p-6 sm:p-7 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-sans text-xs sm:text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
+              Skills & Technologies
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <MagneticButton key={skill} strength={0.35}>
-                  <Badge
-                    variant="secondary"
-                    className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border border-blue-100 dark:border-blue-900/30 cursor-default px-3 py-1 text-xs"
-                  >
-                    {skill}
-                  </Badge>
-                </MagneticButton>
-              ))}
-            </div>
           </div>
-        </CardTilt>
+
+          <VelocityMarquee row1={frontendSkills} row2={backendSkills} />
+        </GlassCard>
 
         <GithubContributions />
       </motion.div>
