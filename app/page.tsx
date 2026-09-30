@@ -20,7 +20,7 @@ export default function Home() {
       <LiquidWaterSurface />
       <div className="max-w-5xl lg:max-w-6xl mx-auto w-full px-6 lg:px-8 flex flex-col flex-1 relative z-10">
         <Navbar />
-        <main className="flex-1 w-full pt-32 pb-16 space-y-32">
+        <main className="flex-1 w-full pt-24 pb-16 space-y-32">
           <Hero />
           <SectionReveal>
             <About />

@@ -137,7 +137,7 @@ export function Hero() {
   );
 
   return (
-    <section ref={containerRef} id="home" className="pt-4 sm:pt-8 md:pt-12">
+    <section ref={containerRef} id="home" className="pt-2 sm:pt-4 md:pt-6 scroll-mt-24">
       <div className="flex flex-col gap-12 lg:gap-16">
         {/* Main Grid: Headline & Information vs Portrait & Halftone */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
