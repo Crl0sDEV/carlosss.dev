@@ -21,9 +21,9 @@ export function Navbar() {
         <MagneticButton strength={0.25}>
           <a
             href="#home"
-            className="text-xl font-bold tracking-tight text-[#18181B] dark:text-[#F4F4F5] inline-block"
+            className="text-lg font-bold font-pixel tracking-wider text-[#18181B] dark:text-[#F4F4F5] inline-block"
           >
-            carlosss<span className="text-red-500 dark:text-red-400">.dev</span>
+            carlosss<span className="text-[#636B2F] dark:text-[#D4DE95]">.dev</span>
           </a>
         </MagneticButton>
 
@@ -33,7 +33,7 @@ export function Navbar() {
             <MagneticButton key={link.name} strength={0.3}>
               <a
                 href={link.href}
-                className="hover:text-red-500 dark:hover:text-red-400 transition-colors inline-block px-1 py-0.5"
+                className="hover:text-[#636B2F] dark:hover:text-[#D4DE95] transition-colors inline-block px-1 py-0.5"
               >
                 {link.name}
               </a>
@@ -83,7 +83,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-base font-medium text-[#52525B] dark:text-[#A1A1AA] hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="text-base font-medium text-[#52525B] dark:text-[#A1A1AA] hover:text-[#636B2F] dark:hover:text-[#D4DE95] transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.name}

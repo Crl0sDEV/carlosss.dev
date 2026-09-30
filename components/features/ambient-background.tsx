@@ -45,8 +45,8 @@ export function AmbientBackground() {
       className="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none bg-[#F5F6FA] dark:bg-[#070709] transition-colors duration-700"
     >
       {/* Directional Ambient Light Gradients */}
-      <div className="absolute -top-[20%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-gradient-to-b from-red-500/8 via-rose-500/4 to-transparent blur-3xl dark:from-red-600/8 dark:via-red-950/5 dark:to-transparent" />
-      <div className="absolute top-[40%] -left-[15%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tr from-slate-400/10 to-transparent blur-3xl dark:from-neutral-800/20 dark:to-transparent" />
+      <div className="absolute -top-[20%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-gradient-to-b from-[#636B2F]/15 via-[#D4DE95]/10 to-transparent blur-3xl dark:from-[#636B2F]/20 dark:via-[#D4DE95]/10 dark:to-transparent" />
+      <div className="absolute top-[40%] -left-[15%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tr from-[#BAC095]/15 to-transparent blur-3xl dark:from-[#3D4127]/30 dark:to-transparent" />
 
       {/* Layered Architectural Card Planes */}
       <div className="relative w-full h-full">

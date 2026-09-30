@@ -15,7 +15,7 @@ const LiquidWaterSurface = dynamic(() => import('@/components/features/liquid-wa
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F6FA] dark:bg-[#070709] selection:bg-red-500/25 selection:text-red-950 dark:selection:text-red-200 text-neutral-800 dark:text-neutral-200 relative overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#F5F6FA] dark:bg-[#070709] selection:bg-[#636B2F]/30 selection:text-[#3D4127] dark:selection:bg-[#D4DE95]/30 dark:selection:text-[#D4DE95] text-neutral-800 dark:text-neutral-200 relative overflow-x-hidden">
       <AmbientBackground />
       <LiquidWaterSurface />
       <div className="max-w-5xl lg:max-w-6xl mx-auto w-full px-6 lg:px-8 flex flex-col flex-1 relative z-10">

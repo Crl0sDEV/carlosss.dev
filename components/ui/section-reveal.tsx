@@ -18,7 +18,7 @@ export function SectionReveal({ children, className = "" }: SectionRevealProps) 
       className={`relative group my-6 ${className}`}
     >
       {/* Subtle section ambient glow backdrop */}
-      <div className="absolute -inset-x-4 -inset-y-6 bg-gradient-to-r from-red-500/0 via-red-500/[0.02] to-red-500/0 dark:via-red-500/[0.04] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
+      <div className="absolute -inset-x-4 -inset-y-6 bg-gradient-to-r from-transparent via-[#636B2F]/[0.03] to-transparent dark:via-[#D4DE95]/[0.04] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10" />
       {children}
     </motion.div>
   );

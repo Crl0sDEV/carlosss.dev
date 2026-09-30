@@ -84,16 +84,16 @@ export function WhyWorkWithMe() {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-red-500 dark:text-red-400">
+                  <span className="font-mono text-xs font-bold text-[#636B2F] dark:text-[#D4DE95]">
                     [{pillar.num}]
                   </span>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md liquid-glass-subtle text-xs font-mono text-neutral-700 dark:text-neutral-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-red-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#636B2F] dark:bg-[#D4DE95]" />
                     <span>{pillar.tag}</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-[#636B2F] dark:group-hover:text-[#D4DE95] transition-colors">
                   {pillar.title}
                 </h3>
 

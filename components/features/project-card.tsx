@@ -54,7 +54,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
             {/* Top Meta Header */}
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 font-mono text-xs">
-                <span className="font-bold text-red-500 dark:text-red-400">
+                <span className="font-bold text-[#636B2F] dark:text-[#D4DE95]">
                   [{formattedIndex}]
                 </span>
                 <span className="text-[#71717A] dark:text-[#A1A1AA] uppercase tracking-wider text-[11px]">
@@ -64,7 +64,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
             </div>
 
             {/* Title & Description */}
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#18181B] dark:text-[#F4F4F5] tracking-tight group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#18181B] dark:text-[#F4F4F5] tracking-tight group-hover:text-[#636B2F] dark:group-hover:text-[#D4DE95] transition-colors">
               {project.title}
             </h3>
 
@@ -75,7 +75,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
             {/* Impact Metric Callout */}
             {project.impact && (
               <div className="flex items-start gap-2.5 p-3.5 rounded-xl liquid-glass-subtle text-xs sm:text-[13px]">
-                <span className="shrink-0 font-mono font-bold text-red-500 dark:text-red-400 text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-red-50 dark:bg-red-950/60 border border-red-200/50 dark:border-red-900/40">
+                <span className="shrink-0 font-mono font-bold text-[#636B2F] dark:text-[#D4DE95] text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#BAC095]/20 dark:bg-[#3D4127]/60 border border-[#636B2F]/20 dark:border-[#BAC095]/20">
                   Key Result
                 </span>
                 <span className="text-[#27272A] dark:text-[#E4E4E7] leading-relaxed">
@@ -94,8 +94,8 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
             <div className="overflow-hidden">
               <div className="pt-2 pb-1 space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs leading-relaxed">
-                  <div className="p-3.5 rounded-xl border border-red-200/50 dark:border-red-950/50 bg-red-50/25 dark:bg-red-950/15 backdrop-blur-xs">
-                    <span className="font-mono text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider block mb-1">
+                  <div className="p-3.5 rounded-xl border border-[#636B2F]/20 dark:border-[#BAC095]/20 bg-[#BAC095]/10 dark:bg-[#3D4127]/20 backdrop-blur-xs">
+                    <span className="font-mono text-[10px] font-bold text-[#636B2F] dark:text-[#D4DE95] uppercase tracking-wider block mb-1">
                       Problem
                     </span>
                     <span className="text-[#52525B] dark:text-[#A1A1AA]">
@@ -136,7 +136,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
                 type="button"
                 onClick={() => setIsUnfolded(!isUnfolded)}
                 aria-expanded={isUnfolded}
-                className="inline-flex items-center gap-1.5 rounded-lg liquid-glass-subtle liquid-glass-interactive px-3 py-1.5 text-xs font-medium text-[#52525B] dark:text-[#A1A1AA] transition-colors hover:text-red-500 dark:hover:text-red-400"
+                className="inline-flex items-center gap-1.5 rounded-lg liquid-glass-subtle liquid-glass-interactive px-3 py-1.5 text-xs font-medium text-[#52525B] dark:text-[#A1A1AA] transition-colors hover:text-[#636B2F] dark:hover:text-[#D4DE95]"
               >
                 <span>{isUnfolded ? "Hide Details" : "View Details"}</span>
                 <ChevronDown
@@ -151,7 +151,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
                   <a
                     href={project.link}
                     onClick={(e) => onPreviewClick(e, project)}
-                    className="hidden md:inline-flex items-center gap-1 rounded-lg border border-red-200 dark:border-red-900/50 bg-red-50/60 dark:bg-red-950/30 px-3 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors"
+                    className="hidden md:inline-flex items-center gap-1 rounded-lg border border-[#636B2F]/30 dark:border-[#BAC095]/30 bg-[#BAC095]/20 dark:bg-[#3D4127]/40 px-3 py-1.5 text-xs font-medium text-[#636B2F] dark:text-[#D4DE95] hover:bg-[#BAC095]/30 dark:hover:bg-[#3D4127]/60 transition-colors"
                     title="Open Live Preview Modal"
                   >
                     <Eye className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export function ProjectCard({ project, idx, onPreviewClick }: ProjectCardProps) 
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-xs font-medium transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1 rounded-lg bg-[#636B2F] hover:bg-[#525925] text-white dark:bg-[#D4DE95] dark:hover:bg-[#c2ce7c] dark:text-[#1E2113] px-3 py-1.5 text-xs font-medium transition-colors shadow-xs"
                   >
                     <span>Visit</span>
                     <ExternalLink className="w-3 h-3" />

@@ -121,7 +121,7 @@ export function Contact() {
                   href={social.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full liquid-glass-subtle liquid-glass-interactive text-neutral-600 dark:text-neutral-300 hover:text-red-500 dark:hover:text-red-400 text-sm font-medium transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full liquid-glass-subtle liquid-glass-interactive text-neutral-600 dark:text-neutral-300 hover:text-[#636B2F] dark:hover:text-[#D4DE95] text-sm font-medium transition-colors"
                 >
                   {social.icon}
                   <span>{social.name}</span>
@@ -146,7 +146,7 @@ export function Contact() {
                     name="name"
                     type="text" 
                     required
-                    className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5]"
+                    className="rounded-xl liquid-glass-subtle focus-visible:ring-[#636B2F] dark:focus-visible:ring-[#D4DE95] text-[#18181B] dark:text-[#F4F4F5]"
                     placeholder="Your Name"
                   />
                 </div>
@@ -157,7 +157,7 @@ export function Contact() {
                     name="email"
                     type="email" 
                     required
-                    className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5]"
+                    className="rounded-xl liquid-glass-subtle focus-visible:ring-[#636B2F] dark:focus-visible:ring-[#D4DE95] text-[#18181B] dark:text-[#F4F4F5]"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -170,7 +170,7 @@ export function Contact() {
                   name="message"
                   required
                   rows={5}
-                  className="rounded-xl liquid-glass-subtle focus-visible:ring-red-500 text-[#18181B] dark:text-[#F4F4F5] resize-none"
+                  className="rounded-xl liquid-glass-subtle focus-visible:ring-[#636B2F] dark:focus-visible:ring-[#D4DE95] text-[#18181B] dark:text-[#F4F4F5] resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -182,8 +182,8 @@ export function Contact() {
                 disabled={status === "loading" || status === "success"}
                 className={`w-full h-12 text-sm font-medium transition-all ${
                   status === "success" 
-                    ? "bg-green-500 hover:bg-green-600 text-white shadow-green-500/20" 
-                    : "bg-red-500 hover:bg-red-600 text-white shadow-red-500/20"
+                    ? "bg-[#636B2F] hover:bg-[#525925] text-white shadow-[#636B2F]/20 dark:bg-[#D4DE95] dark:text-[#1E2113]" 
+                    : "bg-[#636B2F] hover:bg-[#525925] text-white shadow-[#636B2F]/20 dark:bg-[#D4DE95] dark:hover:bg-[#c2ce7c] dark:text-[#1E2113] dark:shadow-[#D4DE95]/20"
                 } shadow-sm`}
               >
                 {status === "loading" ? (

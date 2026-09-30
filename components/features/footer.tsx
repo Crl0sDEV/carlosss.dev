@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="py-12 border-t border-black/5 dark:border-white/5 mt-auto">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-base font-sans font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
-          carlosss<span className="text-red-500 dark:text-red-400">.dev</span>
+          carlosss<span className="text-[#636B2F] dark:text-[#D4DE95]">.dev</span>
         </div>
         
         <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400">

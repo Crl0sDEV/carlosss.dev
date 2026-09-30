@@ -36,7 +36,7 @@ export function ScrollProgress() {
 
   return (
     <div 
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-600 z-[100] transition-transform duration-75 ease-out origin-left pointer-events-none shadow-[0_0_10px_rgba(239,68,68,0.7)]"
+      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#636B2F] via-[#BAC095] to-[#D4DE95] z-[100] transition-transform duration-75 ease-out origin-left pointer-events-none shadow-[0_0_10px_rgba(212,222,149,0.6)]"
       style={{ transform: `scaleX(${scrollProgress / 100})` }}
       aria-hidden="true"
     />

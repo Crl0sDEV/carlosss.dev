@@ -145,27 +145,26 @@ export function Hero() {
           <div className="order-2 lg:order-1 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start max-w-xl mx-auto lg:mx-0 w-full">
             {/* Tagline */}
             <div className="hero-tag-item inline-flex items-center gap-3">
-              <span className="w-8 h-[2px] bg-red-500 dark:bg-red-400" />
+              <span className="w-8 h-[2px] bg-[#636B2F] dark:bg-[#D4DE95]" />
               <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
                 Full-Stack Web Developer
               </span>
             </div>
 
-            {/* Headline */}
+            {/* Headline: Name */}
             <h1
               ref={headlineRef}
-              className="text-4xl sm:text-6xl md:text-[4rem] xl:text-[4.5rem] font-extrabold tracking-[-0.035em] text-neutral-900 dark:text-neutral-50 leading-[1.06]"
+              className="font-pixel text-2xl sm:text-4xl md:text-[2.6rem] lg:text-[2.5rem] xl:text-[3rem] font-normal text-neutral-900 dark:text-neutral-50 leading-[1.25] tracking-wide"
             >
-              I am{" "}
-              <span className="text-red-500 dark:text-red-400">Full Stack</span>
-              <span className="block mt-1 text-neutral-900 dark:text-white">
-                Web Developer
+              <span className="whitespace-nowrap">Carlos Miguel</span>{" "}
+              <span className="block mt-1 sm:mt-2 text-[#636B2F] dark:text-[#D4DE95]">
+                Sandrino
               </span>
             </h1>
 
             {/* Sub-tag */}
             <div className="hero-tag-item flex items-center gap-3 pt-1">
-              <span className="w-12 sm:w-16 h-[2px] bg-red-500 dark:bg-red-400" />
+              <span className="w-12 sm:w-16 h-[2px] bg-[#636B2F] dark:bg-[#D4DE95]" />
               <span className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400">
                 Building fast, clean, and modern websites
               </span>
@@ -185,7 +184,7 @@ export function Hero() {
                 <MagneticButton strength={0.25}>
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-red-500 hover:bg-red-600 text-white font-semibold px-7 sm:px-8 h-12 rounded-xl text-sm sm:text-base shadow-md shadow-red-500/25 transition-transform active:scale-95"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-[#636B2F] hover:bg-[#525925] text-white font-semibold px-7 sm:px-8 h-12 rounded-xl text-sm sm:text-base shadow-md shadow-[#636B2F]/25 dark:bg-[#D4DE95] dark:hover:bg-[#c2ce7c] dark:text-[#1E2113] dark:shadow-[#D4DE95]/20 transition-all active:scale-95"
                   >
                     <span>Contact Me</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -197,7 +196,7 @@ export function Hero() {
                 <MagneticButton strength={0.25}>
                   <a
                     href="#projects"
-                    className="inline-flex items-center justify-center whitespace-nowrap liquid-glass liquid-glass-interactive text-neutral-900 dark:text-neutral-100 font-semibold px-7 sm:px-8 h-12 rounded-xl text-sm sm:text-base shadow-sm transition-transform active:scale-95 border border-black/5 dark:border-white/10 hover:text-red-500 dark:hover:text-red-400"
+                    className="inline-flex items-center justify-center whitespace-nowrap liquid-glass liquid-glass-interactive text-neutral-900 dark:text-neutral-100 font-semibold px-7 sm:px-8 h-12 rounded-xl text-sm sm:text-base shadow-sm transition-transform active:scale-95 border border-black/5 dark:border-white/10 hover:text-[#636B2F] dark:hover:text-[#D4DE95]"
                   >
                     View Projects
                   </a>
@@ -223,7 +222,7 @@ export function Hero() {
               <div
                 ref={glowRef}
                 aria-hidden="true"
-                className="absolute top-3 sm:top-5 md:top-6 lg:top-8 left-1/2 -translate-x-1/2 w-[150px] h-[150px] sm:w-[190px] sm:h-[190px] lg:w-[230px] lg:h-[230px] rounded-full bg-red-500/15 dark:bg-red-500/20 blur-2xl pointer-events-none will-change-transform z-0"
+                className="absolute top-3 sm:top-5 md:top-6 lg:top-8 left-1/2 -translate-x-1/2 w-[150px] h-[150px] sm:w-[190px] sm:h-[190px] lg:w-[230px] lg:h-[230px] rounded-full bg-[#636B2F]/20 dark:bg-[#D4DE95]/20 blur-2xl pointer-events-none will-change-transform z-0"
               />
 
               {/* Profile Cutout Image (Horizontally level & balanced) */}
@@ -254,7 +253,7 @@ export function Hero() {
               href="https://github.com/Crl0sDEV"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="hover:text-[#636B2F] dark:hover:text-[#D4DE95] transition-colors"
             >
               GitHub &rarr;
             </a>
@@ -262,13 +261,13 @@ export function Hero() {
               href="https://www.linkedin.com/in/sandrino-carlos-miguel"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="hover:text-[#636B2F] dark:hover:text-[#D4DE95] transition-colors"
             >
               LinkedIn &rarr;
             </a>
             <a
               href="mailto:sandrinocarlosmiguel@gmail.com"
-              className="hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="hover:text-[#636B2F] dark:hover:text-[#D4DE95] transition-colors"
             >
               Email &rarr;
             </a>

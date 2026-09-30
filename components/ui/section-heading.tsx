@@ -80,13 +80,13 @@ export function SectionHeading({ title, description, className }: SectionHeading
     >
       <h2
         ref={titleRef}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mb-3 leading-tight"
+        className="font-pixel text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-normal text-neutral-900 dark:text-neutral-100 mb-3 leading-snug"
       >
         {title}
       </h2>
       <div
         ref={lineRef}
-        className="h-1 w-12 bg-red-500 dark:bg-red-400 rounded-full mb-3"
+        className="h-1 w-12 bg-[#636B2F] dark:bg-[#D4DE95] rounded-full mb-3"
       />
       {description && (
         <p

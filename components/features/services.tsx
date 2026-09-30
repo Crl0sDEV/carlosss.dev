@@ -78,12 +78,12 @@ export function Services() {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-red-500 dark:text-red-400">
+                  <span className="font-mono text-xs font-bold text-[#636B2F] dark:text-[#D4DE95]">
                     [{service.num}]
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+                <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight group-hover:text-[#636B2F] dark:group-hover:text-[#D4DE95] transition-colors">
                   {service.title}
                 </h3>
 
@@ -96,7 +96,7 @@ export function Services() {
               <div className="pt-4 border-t border-black/5 dark:border-white/10 flex flex-wrap gap-2 text-xs font-mono text-neutral-500 dark:text-neutral-400">
                 {service.deliverables.map((item, idx) => (
                   <span key={idx} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md liquid-glass-subtle">
-                    <span className="text-red-500 dark:text-red-400 font-bold">&bull;</span>
+                    <span className="text-[#636B2F] dark:text-[#D4DE95] font-bold">&bull;</span>
                     <span>{item}</span>
                   </span>
                 ))}

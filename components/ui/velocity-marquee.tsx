@@ -109,9 +109,9 @@ export function VelocityMarquee({ row1, row2, className }: VelocityMarqueeProps)
           {fullRow1.map((item, idx) => (
             <div
               key={`${item}-${idx}`}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl liquid-glass-subtle text-xs sm:text-sm font-mono text-neutral-800 dark:text-neutral-200 border border-black/5 dark:border-white/10 hover:border-red-500/40 transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl liquid-glass-subtle text-xs sm:text-sm font-mono text-neutral-800 dark:text-neutral-200 border border-black/5 dark:border-white/10 hover:border-[#636B2F]/40 dark:hover:border-[#D4DE95]/40 transition-colors shadow-xs"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-red-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#636B2F] dark:bg-[#D4DE95]" />
               <span>{item}</span>
             </div>
           ))}
@@ -124,9 +124,9 @@ export function VelocityMarquee({ row1, row2, className }: VelocityMarqueeProps)
           {fullRow2.map((item, idx) => (
             <div
               key={`${item}-${idx}`}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl liquid-glass-subtle text-xs sm:text-sm font-mono text-neutral-800 dark:text-neutral-200 border border-black/5 dark:border-white/10 hover:border-red-500/40 transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl liquid-glass-subtle text-xs sm:text-sm font-mono text-neutral-800 dark:text-neutral-200 border border-black/5 dark:border-white/10 hover:border-[#636B2F]/40 dark:hover:border-[#D4DE95]/40 transition-colors shadow-xs"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-red-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#636B2F] dark:bg-[#D4DE95]" />
               <span>{item}</span>
             </div>
           ))}

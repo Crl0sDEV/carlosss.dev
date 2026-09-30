@@ -128,7 +128,7 @@ export function Projects() {
             <MagneticButton strength={0.2}>
               <button
                 onClick={handleToggleShowAll}
-                className="inline-flex items-center justify-center whitespace-nowrap bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] hover:text-red-500 dark:hover:text-red-400 rounded-lg px-8 h-12 font-medium transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95"
+                className="inline-flex items-center justify-center whitespace-nowrap bg-white dark:bg-[#1A1A1A] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] hover:bg-[#F4F4F5] dark:hover:bg-[#27272A] hover:text-[#636B2F] dark:hover:text-[#D4DE95] rounded-lg px-8 h-12 font-medium transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:scale-95"
               >
                 {showAll ? "Show Less" : `View All Projects (${projects.length})`}
               </button>
