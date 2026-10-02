@@ -7,7 +7,7 @@ import { ScrollProgress } from "@/components/features/scroll-progress";
 import { GsapProvider } from "@/components/features/gsap-provider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://carlosssdev.vercel.app"),
+  metadataBase: new URL("https://carlosdev.me"),
   title: {
     default: "Carlos Miguel Sandrino | Full Stack Web Developer",
     template: "%s | Carlos Miguel Sandrino"
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Carlos Miguel Sandrino | Full Stack Web Developer",
     description: "I build fast, scalable custom web applications that drive real business results.",
-    url: "https://carlosssdev.vercel.app",
+    url: "https://carlosdev.me",
     siteName: "Carlos Miguel Portfolio",
     images: [
       {

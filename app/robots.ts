@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://carlosssdev.vercel.app/sitemap.xml',
+    sitemap: 'https://carlosdev.me/sitemap.xml',
   }
 }
