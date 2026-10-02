@@ -23,7 +23,7 @@ export function Navbar() {
             href="#home"
             className="text-lg font-bold font-pixel tracking-wider text-[#18181B] dark:text-[#F4F4F5] inline-block"
           >
-            carlosss<span className="text-[#636B2F] dark:text-[#D4DE95]">.dev</span>
+            carlos<span className="text-[#636B2F] dark:text-[#D4DE95]">dev</span>
           </a>
         </MagneticButton>
 
